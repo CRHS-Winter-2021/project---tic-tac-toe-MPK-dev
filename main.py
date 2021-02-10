@@ -1,9 +1,13 @@
 ##Tic Tac Toe
-#Name:
+#Name:K.King 
 #Date:
 
 #1. (Var) Setup the empty board as a list
-theBoard = []
+theBoard = [" " ," ", " ", 
+            " ", " ", " "
+            , " ", " ", " ", " "]
+
+print(theBoard)
 
 #2. (fun) Print the board.
 #in: a 10 item list (either x, o or ' ')
@@ -11,7 +15,14 @@ theBoard = []
 #out: none
 
 def printBoard(board):
-    pass
+   print("X" + "|" + " " + "|", "O")
+   print("________________________")
+   print(" " + "|" + "X" + "|", " ")
+   print("________________________")
+   print(" " + "|" + " " + "|", "X")
+
+printBoard(board)
+
 
 #3a. (fun) Determine if player is X or O
 player1 = ''
