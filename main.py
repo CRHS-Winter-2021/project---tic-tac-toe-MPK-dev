@@ -7,7 +7,7 @@ theBoard = [" " ," ", " ",
             " ", " ", " "
             , " ", " ", " ", " "]
 
-print(theBoard)
+#print(theBoard)
 
 #2. (fun) Print the board.
 #in: a 10 item list (either x, o or ' ')
@@ -15,30 +15,45 @@ print(theBoard)
 #out: none
 
 def printBoard(board):
-   print("X" + "|" + " " + "|", "O")
-   print("________________________")
-   print(" " + "|" + "X" + "|", " ")
-   print("________________________")
-   print(" " + "|" + " " + "|", "X")
+   print(board[7]+ "|" + board[8] + "|", board[9])
+   print("-----")
+   print(board[4] + "|" + board[5] + "|", board[6])
+   print("-----")
+   print(board[1] + "|" + board[2] + "|", board[3])
 
-printBoard(board)
+#printBoard(theBoard)
 
 
 #3a. (fun) Determine if player is X or O
-player1 = ''
-player2 = ''
+player1 = " "
+player2 = " "
 
 #in: None
 #do: get user choice, assign X/O to player1 and 2
 #out: None
 
+
+
 def chooseLetter():
-    pass
+  global player1
+  global player2
+  letter_choice = int(input("Is player 1 X? \n 1- Yes \n 2- No "))
+  if letter_choice == 1:
+      player1 = "X"
+      player2 = "O"
+  else:
+        player2 = "O"
+        player2 = "X"
 
 
 #3b. (fun) Choose starting player 1 or 2
+
+first_choice =  int(input("Is player 1 going first? \n 1- Yes \n 2- No "))
 def chooseStart():
-    pass
+    if first_choice == 1:
+        pass
+    else :
+      pass
 
 #4. (fun) Get player move
 #in: board as list, player as X or O
@@ -48,7 +63,17 @@ def chooseStart():
 #out: none
 
 def playerMove(board, player):
-    pass
+      index = pos -1
+  if board == " ":
+    lst.replace(player1)
+  else :
+    print("That space is already taken, choose another. ")
+  print(theBoard)
+
+playerMove(7, player1)
+
+
+
 
 
 #5. (fun) Check Winner
