@@ -42,8 +42,10 @@ def chooseLetter():
       player1 = "X"
       player2 = "O"
   else:
-        player2 = "O"
+        player1 = "O"
         player2 = "X"
+  
+chooseLetter()
 
 
 #3b. (fun) Choose starting player 1 or 2
@@ -63,14 +65,19 @@ def chooseStart():
 #out: none
 
 def playerMove(board, player):
-      index = pos -1
-  if board == " ":
-    lst.replace(player1)
+  player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
+  index = board
+  if board [player_choice] == " ":
+    board[player_choice] = player
   else :
+    while board [player_choice] == "X" or "O":
     print("That space is already taken, choose another. ")
+    player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
+    print(theBoard)
   print(theBoard)
 
-playerMove(7, player1)
+playerMove(theBoard, player1)
+playerMove(theBoard, player1)
 
 
 
