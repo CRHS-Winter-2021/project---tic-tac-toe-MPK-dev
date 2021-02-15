@@ -5,7 +5,7 @@
 #1. (Var) Setup the empty board as a list
 theBoard = [" " ," ", " ", 
             " ", " ", " "
-            , " ", " ", " ", " "]
+            , " ", " ", " "]
 
 #print(theBoard)
 
@@ -67,14 +67,14 @@ def chooseStart():
 def playerMove(board, player):
   player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
   index = board
-  if board [player_choice] == " ":
-    board[player_choice] = player
-  else :
-    while board [player_choice] == "X" or "O":
+  while board [player_choice] == "X" or "O":
     print("That space is already taken, choose another. ")
-    player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
     print(theBoard)
-  print(theBoard)
+    player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
+    
+print(theBoard)
+
+#board[player_choice] = player
 
 playerMove(theBoard, player1)
 playerMove(theBoard, player1)
@@ -89,7 +89,57 @@ playerMove(theBoard, player1)
 #out: True for win, False otherwise
     
 def checkWin(board, player):
-    pass
+  # Top row x 
+    if board[7]== ("X") and board[8]== ("X") and board[9]== ("X") :
+      return True
+  # Mid row x 
+    if board[4]== ("X") and board[5]== ("X") and board[6]== ("X") :
+      return True
+  # Bottom row x 
+    if board[1]== ("X") and board[2]== ("X") and board[3]== ("X") :
+      return True
+  # Right row x 
+    if board[1]== ("X") and board[4]== ("X") and board[7]== ("X") :
+      return True
+  # Center row x 
+    if board[2]== ("X") and board[5]== ("X") and board[8]== ("X") :
+      return True
+  # Left row x 
+    if board[3]== ("X") and board[6]== ("X") and board[9]== ("X") :
+      return True
+  # 7 to 3 diagnal x 
+    if board[7]== ("X") and board[5]== ("X") and board[3]== ("X") :
+      return True
+  # 9 to 1 diagnal x 
+    if board[9]== ("X") and board[5]== ("X") and board[1]== ("X") :
+      return True
+
+    # Top row Y
+    if board[7]== ("Y") and board[8]== ("Y") and board[9]== ("Y") :
+      return True
+  # Mid row Y
+    if board[4]== ("Y") and board[5]== ("Y") and board[6]== ("Y") :
+      return True
+  # Bottom row Y
+    if board[1]== ("Y") and board[2]== ("Y") and board[3]== ("Y") :
+      return True
+  # Right row Y
+    if board[1]== ("Y") and board[4]== ("Y") and board[7]== ("Y") :
+      return True
+  # Center row Y 
+    if board[2]== ("Y") and board[5]== ("Y") and board[8]== ("Y") :
+      return True
+  # Left row Y 
+    if board[3]== ("Y") and board[6]== ("Y") and board[9]== ("Y") :
+      return True
+  # 7 to 3 diagnal Y
+    if board[7]== ("Y") and board[5]== ("Y") and board[3]== ("Y") :
+      return True
+  # 9 to 1 diagnal Y 
+    if board[9]== ("Y") and board[5]== ("Y") and board[1]== ("Y") :
+      return True
+
+
 
 
 #6. (fun) Check if board is full
