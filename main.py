@@ -69,7 +69,7 @@ def playerMove(board, player):
   try: 
     player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
 
-    while board [player_choice] == "X" or "O":
+    while board [player_choice] == "":
       print("That space is already taken, choose another. ")
       print(theBoard)
       player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
