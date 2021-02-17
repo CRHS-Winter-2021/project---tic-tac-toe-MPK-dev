@@ -5,7 +5,7 @@
 #1. (Var) Setup the empty board as a list
 theBoard = [" " ," ", " ", 
             " ", " ", " "
-            , " ", " ", " "]
+            , " ", " ", " ", " "]
 
 #print(theBoard)
 
@@ -53,9 +53,9 @@ chooseLetter()
 first_choice =  int(input("Is player 1 going first? \n 1- Yes \n 2- No "))
 def chooseStart():
     if first_choice == 1:
-        pass
+        return True
     else :
-      pass
+      return False
 
 #4. (fun) Get player move
 #in: board as list, player as X or O
@@ -65,12 +65,17 @@ def chooseStart():
 #out: none
 
 def playerMove(board, player):
-  player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
-  index = board
-  while board [player_choice] == "X" or "O":
-    print("That space is already taken, choose another. ")
-    print(theBoard)
+  
+  try: 
     player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
+
+    while board [player_choice] == "X" or "O":
+      print("That space is already taken, choose another. ")
+      print(theBoard)
+      player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
+  except:
+    print("Invalid input")
+    playerMove(board, player)
     
 print(theBoard)
 
@@ -115,28 +120,28 @@ def checkWin(board, player):
       return True
 
     # Top row Y
-    if board[7]== ("Y") and board[8]== ("Y") and board[9]== ("Y") :
+    if board[7]== ("O") and board[8]== ("O") and board[9]== ("O") :
       return True
   # Mid row Y
-    if board[4]== ("Y") and board[5]== ("Y") and board[6]== ("Y") :
+    if board[4]== ("O") and board[5]== ("O") and board[6]== ("O") :
       return True
   # Bottom row Y
-    if board[1]== ("Y") and board[2]== ("Y") and board[3]== ("Y") :
+    if board[1]== ("O") and board[2]== ("O") and board[3]== ("O") :
       return True
   # Right row Y
-    if board[1]== ("Y") and board[4]== ("Y") and board[7]== ("Y") :
+    if board[1]== ("O") and board[4]== ("O") and board[7]== ("O") :
       return True
   # Center row Y 
-    if board[2]== ("Y") and board[5]== ("Y") and board[8]== ("Y") :
+    if board[2]== ("O") and board[5]== ("O") and board[8]== ("O") :
       return True
   # Left row Y 
-    if board[3]== ("Y") and board[6]== ("Y") and board[9]== ("Y") :
+    if board[3]== ("O") and board[6]== ("O") and board[9]== ("O") :
       return True
   # 7 to 3 diagnal Y
-    if board[7]== ("Y") and board[5]== ("Y") and board[3]== ("Y") :
+    if board[7]== ("O") and board[5]== ("O") and board[3]== ("O") :
       return True
   # 9 to 1 diagnal Y 
-    if board[9]== ("Y") and board[5]== ("Y") and board[1]== ("Y") :
+    if board[9]== ("O") and board[5]== ("O") and board[1]== ("O") :
       return True
 
 
@@ -150,16 +155,19 @@ def checkWin(board, player):
 #out: return True if board is full, False otherwise
 
 def checkFull(board):
-    pass
+    if theBoard.count == " " > 1:
+      return False
+    else:
+      return True
 
 #7. Main function
 
 def main():
-    #print Welcome
-    #print instructions
+    #print Welcome/
+    #print instructions/
 
     #game play
-    #get player letter choice
+    #get player letter choice/
     
     #while board is not full
     ###first player move
@@ -172,7 +180,20 @@ def main():
         #player chooses move
         #print baord
         #check win
+    print("Welcome to the ancient game of Tic Tac Toe.")
+    print("To win you have to place either an X or O in grid 3 times in a row. \n Use the numbers on the key pad to assign your marker of choice to your square of choice.")
+    # print(theBoard)
+    #chooseLetter()
+    #first_choice()
+    #chooseStart()
     
+    if first_chioce == True :
+
+     while checkFull()== False:
+       playerMove(theboard, player1)
+       print(theBoard)
+       checkWin()
+       checkFull()
     
     pass
 
