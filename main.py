@@ -45,13 +45,17 @@ def chooseLetter():
         player1 = "O"
         player2 = "X"
   
-chooseLetter()
+#chooseLetter()
 
 
 #3b. (fun) Choose starting player 1 or 2
 
-first_choice =  int(input("Who is going first? \n 1- Player 1 \n 2- Player 2 "))
+
+first_choice = 1 
+
 def chooseStart():
+    global first_choice
+    first_choice =  int(input("Who is going first? \n 1- Player 1 \n 2- Player 2 "))
     if first_choice == 1:
         return True
     else :
@@ -65,28 +69,29 @@ def chooseStart():
 #out: none
 
 def playerMove(board, player):
-  
+  global player1
+  global player2
   try: 
     player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
 
     if board [player_choice] == "_":
       if player == player1:
-        board[playersmove].replace(player1)
+        board[playerMove].replace(player1)
       elif player == player2:
-        board[playersmove].replace(player2)
+        board[playerMove].replace(player2)
     else:
-      Print("That space is taken,choose another one.")
+      print("That space is taken,choose another one.")
       playerMove(board,player)
   except:
     print("Invalid input")
     playerMove(board, player)
     
-print(theBoard)
+#print(theBoard)
 
 #board[player_choice] = player
 
-playerMove(theBoard, player1)
-playerMove(theBoard, player1)
+#playerMove(theBoard, player1)
+#playerMove(theBoard, player1)
 
 
 
@@ -184,16 +189,17 @@ def main():
         #player chooses move
         #print baord
         #check win
+    global first_choice
     print("Welcome to the ancient game of Tic Tac Toe.")
     print("To win you have to place either an X or O in grid 3 times in a row. \n Use the numbers on the key pad(1-9) to assign your marker of choice to your square of choice.")
-    # print(theBoard)
-    #chooseLetter()
-    #first_choice()f
-    #chooseStart()
+    print(theBoard)
+    chooseLetter()
+    chooseStart()
     if first_choice == True :## If player 1 is first.
+      checkFull(theBoard)
+      
   
-
-     while checkFull()== False :
+      while checkFull(theBoard)== False :
        playerMove(theBoard,player1)
        print(theBoard)
        checkWin()
@@ -210,7 +216,9 @@ def main():
        else:
         checkFull()
     else:## If player 2 is first
-      while checkFull()== False :
+      checkFull(theBoard)
+
+      while checkFull(theBoard)== False :
        playerMove(theBoard,player2)
        print(theBoard)
        checkWin()
