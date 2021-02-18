@@ -3,9 +3,9 @@
 #Date:
 
 #1. (Var) Setup the empty board as a list
-theBoard = [" " ," ", " ", 
-            " ", " ", " "
-            , " ", " ", " ", " "]
+theBoard = ["_" ,"_", "_", 
+            "_", "_", "_"
+            , "_", "_", "_", "_"]
 
 #print(theBoard)
 
@@ -37,7 +37,7 @@ player2 = " "
 def chooseLetter():
   global player1
   global player2
-  letter_choice = int(input("Is player 1 X? \n 1- Yes \n 2- No "))
+  letter_choice = int(input("who is X? \n 1- Player 1 \n 2- Player 2 "))
   if letter_choice == 1:
       player1 = "X"
       player2 = "O"
@@ -50,7 +50,7 @@ chooseLetter()
 
 #3b. (fun) Choose starting player 1 or 2
 
-first_choice =  int(input("Is player 1 going first? \n 1- Yes \n 2- No "))
+first_choice =  int(input("Who is going first? \n 1- Player 1 \n 2- Player 2 "))
 def chooseStart():
     if first_choice == 1:
         return True
@@ -69,10 +69,14 @@ def playerMove(board, player):
   try: 
     player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
 
-    while board [player_choice] == "":
-      print("That space is already taken, choose another. ")
-      print(theBoard)
-      player_choice = int(input("Which space do you want to pick? \n Choose a number from 1-9 "))
+    if board [player_choice] == "_":
+      if player == player1:
+        board[playersmove].replace(player1)
+      elif player == player2:
+        board[playersmove].replace(player2)
+    else:
+      Print("That space is taken,choose another one.")
+      playerMove(board,player)
   except:
     print("Invalid input")
     playerMove(board, player)
@@ -155,7 +159,7 @@ def checkWin(board, player):
 #out: return True if board is full, False otherwise
 
 def checkFull(board):
-    if theBoard.count == " " > 1:
+    if theBoard.count == "_" > 1:
       return False
     else:
       return True
@@ -163,37 +167,68 @@ def checkFull(board):
 #7. Main function
 
 def main():
-    #print Welcome/
-    #print instructions/
+    #print Welcome X
+    #print instructions X
 
     #game play
-    #get player letter choice/
+    #get player letter choice X
     
-    #while board is not full
-    ###first player move
-        #player chooses move
-        #print board
-        #check win
-        #check board full
+    #while board is not full X
+    ###first player move X
+        #player chooses move X
+        #print board X
+        #check win X
+        #check board full X
 
     ###second player move
         #player chooses move
         #print baord
         #check win
     print("Welcome to the ancient game of Tic Tac Toe.")
-    print("To win you have to place either an X or O in grid 3 times in a row. \n Use the numbers on the key pad to assign your marker of choice to your square of choice.")
+    print("To win you have to place either an X or O in grid 3 times in a row. \n Use the numbers on the key pad(1-9) to assign your marker of choice to your square of choice.")
     # print(theBoard)
     #chooseLetter()
-    #first_choice()
+    #first_choice()f
     #chooseStart()
-    
-    if first_chioce == True :
+    if first_choice == True :## If player 1 is first.
+  
 
-     while checkFull()== False:
-       playerMove(theboard, player1)
+     while checkFull()== False :
+       playerMove(theBoard,player1)
        print(theBoard)
        checkWin()
-       checkFull()
+       if checkWin == True :
+         print("You win player 1!")
+       else:
+        checkFull()
+
+       playerMove(theBoard,player2)
+       print(theBoard)
+       checkWin()
+       if checkWin == True :
+         print("You win player 2!")
+       else:
+        checkFull()
+    else:## If player 2 is first
+      while checkFull()== False :
+       playerMove(theBoard,player2)
+       print(theBoard)
+       checkWin()
+       if checkWin == True :
+         print("You win player 2!")
+       else:
+        checkFull()
+
+      playerMove(theBoard,player1)
+      print(theBoard)
+      checkWin()
+      if checkWin == True :
+        print("You win player 1!")
+      else:
+        checkFull()
     
-    pass
+  
+main()
+    
+    
 
