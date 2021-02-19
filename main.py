@@ -76,9 +76,9 @@ def playerMove(board, player):
 
     if board [player_choice] == "_":
       if player == player1:
-        board[playerMove].replace(player1)
+        board[playerMove] = player1
       elif player == player2:
-        board[playerMove].replace(player2)
+        board[playerMove] = player2 
     else:
       print("That space is taken,choose another one.")
       playerMove(board,player)
@@ -165,9 +165,9 @@ def checkWin(board, player):
 
 def checkFull(board):
     if theBoard.count == "_" > 1:
-      return False
-    else:
       return True
+    else:
+      return False
 
 #7. Main function
 
